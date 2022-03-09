@@ -16,9 +16,10 @@ router.get('/', (req,res) => {
         const img = sharp(new Buffer.from(response.data));
         img.webp({quality: 40});
         const out = await img.toBuffer();
-        res.send(out);
+        res.write(out);
+        res.end();
       } catch(e) {
-        console.log(e);
+        //console.log(e);
         res.redirect(targetUrl);
       };
     })();

@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
         const response = await axios(targetUrl, {responseType: 'arraybuffer'});
         // @ts-expect-error
         const img = sharp(new Buffer.from(response.data));
-        img.webp({quality: 40});
+        img.webp({quality: 10});
         const out = await img.toBuffer();
         res.write(out);
         res.end();

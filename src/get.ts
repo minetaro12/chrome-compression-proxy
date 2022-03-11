@@ -20,7 +20,7 @@ router.get('/', (req,res) => {
         res.end();
       } catch(e) {
         //console.log(e);
-        res.redirect(targetUrl);
+        res.status(500).end();
       };
     })();
   };
